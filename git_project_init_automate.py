@@ -26,6 +26,12 @@ while True:
         # obtain the remote repo
         remote_url = values['remote']
 
+        # set up README.md file to specific format
+        readme_file_path = f"{local_folder}/README.md"
+        readme_file_content = "# REPO/PROJECT NAME GOES HERE\n## About\n## Repo Information"
+        with open(readme_file_path, 'w') as readme_file:
+            readme_file.write(readme_file_content)
+
         # initialize the local Git repo
         subprocess.call(['git', 'init'], cwd=local_folder)
 
