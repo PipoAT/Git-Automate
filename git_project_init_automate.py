@@ -50,6 +50,12 @@ while True:
         # push to the remote repo
         subprocess.call(['git', 'push', '-u', 'origin', 'main'], cwd=local_folder)
 
+        # set up the dev branch
+        subprocess.call(['git', 'checkout', '-b', 'dev'], cwd=local_folder)
+
+        # push the dev branch to remote
+        subprocess.call(['git', 'push', '--set-upstream', 'origin', 'dev'], cwd=local_folder)
+
         # display popup indicating success
         sg.popup('Repository initialized successfully!')
 
