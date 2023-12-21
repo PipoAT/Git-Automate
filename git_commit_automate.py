@@ -10,7 +10,7 @@ layout = [
 ]
 
 # create the window
-window = sg.Window('Git Branch Automation', layout)
+window = sg.Window('Git Commit Automation', layout)
 
 while True:
     # Obtain folder from user input
