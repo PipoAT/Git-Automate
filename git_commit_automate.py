@@ -1,3 +1,4 @@
+import os
 import subprocess
 import PySimpleGUI as sg
 
@@ -20,15 +21,16 @@ while True:
         break
 
     if event == "Commit":
-        # obtain the file(s)
-        files = values['files']
+        # obtain the file paths
+        file_paths = values['files'].split(';')
 
         # obtain the commit message
         message = values['msg']
 
         # add the files
-        for file in files:
-            subprocess.call(['git', 'add', file])
+        for file_path in file_paths:
+            file_name = os.path.basename(file_path)
+            subprocess.call(['git', 'add', file_name])
 
         # commit locally
         subprocess.call(['git', 'commit','-m', message]) 
@@ -42,8 +44,6 @@ while True:
         # clear the fields for new entry from user
         window['files'].update('')
         window['msg'].update('')
-
-
 
 # close window
 window.close()
