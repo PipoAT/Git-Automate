@@ -29,7 +29,12 @@ while True:
 
         # add the files
         for file_path in file_paths:
+            directory = os.path.dirname(file_path)
             file_name = os.path.basename(file_path)
+            
+            # change the current working directory
+            os.chdir(directory)
+
             subprocess.call(['git', 'add', file_name])
 
         # commit locally
