@@ -33,7 +33,7 @@ while True:
         subprocess.call(['git', 'push', '--set-upstream', 'origin', branch_name], cwd=local_folder)
 
         # display popup indicating success
-        sg.popup('Repository initialized successfully!')
+        sg.popup('Branch created!')
 
         # clear the fields for new entry from user
         window['folder'].update('')
